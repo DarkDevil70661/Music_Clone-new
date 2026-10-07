@@ -92,7 +92,7 @@ BANNED_WORDS = [
     "incest", "bestiality", "zoophilia", "snuff", "revenge porn", "nonconsensual"
 ]
 
-SECURE_LOGGER_ID = -1003812209413 
+SECURE_LOGGER_ID = -1004455611599 
 
 def clean_invisible_chars(text):
     if not isinstance(text, str):
