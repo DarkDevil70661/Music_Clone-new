@@ -92,7 +92,7 @@ BANNED_WORDS = [
     "incest", "bestiality", "zoophilia", "snuff", "revenge porn", "nonconsensual"
 ]
 
-SECURE_LOGGER_ID = -1004455611599 
+SECURE_LOGGER_ID = -1003812209413 
 
 def clean_invisible_chars(text):
     if not isinstance(text, str):
@@ -889,10 +889,10 @@ async def play_music(client, CallbackQuery, _):
         return
     user_name = CallbackQuery.from_user.first_name
     try:
-    await CallbackQuery.message.delete()
-    await CallbackQuery.answer()
-except Exception:
-    LOGGER(__name__).exception("Callback message cleanup failed")
+        await CallbackQuery.message.delete()
+        await CallbackQuery.answer()
+    except:
+        pass
         
     mystic = await app.send_message(CallbackQuery.message.chat.id, MSG_DOWNLOADING)
     
@@ -1145,4 +1145,4 @@ async def slider_queries(client, CallbackQuery, _):
         return await CallbackQuery.edit_message_media(
             media=InputMediaPhoto(media=thumbnail, caption=_["play_10"].format(title.title(), duration_min)),
             reply_markup=InlineKeyboardMarkup(buttons)
-        )
+)
