@@ -889,10 +889,10 @@ async def play_music(client, CallbackQuery, _):
         return
     user_name = CallbackQuery.from_user.first_name
     try:
-        await CallbackQuery.message.delete()
-        await CallbackQuery.answer()
-    except:
-        pass
+    await CallbackQuery.message.delete()
+    await CallbackQuery.answer()
+except Exception:
+    LOGGER(__name__).exception("Callback message cleanup failed")
         
     mystic = await app.send_message(CallbackQuery.message.chat.id, MSG_DOWNLOADING)
     
