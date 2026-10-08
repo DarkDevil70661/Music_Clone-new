@@ -17,7 +17,7 @@ LOGGER = logging.getLogger(__name__)
 
 # 🟢 Primary API (Shruti - Promoted after removing Inflex)
 SHRUTI_API_URL = os.environ.get("SHRUTI_API_URL", "https://shrutibots.site")
-SHRUTI_API_KEY = os.environ.get("SHRUTI_API_KEY", "ShrutiBots3I27EDK78QaT0jdh9Tfn")
+SHRUTI_API_KEY = os.environ.get("SHRUTI_API_KEY", "ShrutiBotsJhHL3aUrpEitMoWFoO6a")
 
 def time_to_seconds(time_str):
     stringt = str(time_str)
