@@ -536,13 +536,25 @@ class Call:
             self.active_clients[chat_id].append(assistant_to_join)
 
         try:
-            await self._safe_join_call(assistant_to_join, chat_id, link, video)
-        except Exception as e: 
-            raise AssistantErr(f"VC Error: {e} - (Please check if Voice Chat is turned on in the group)")
+    await self._safe_join_call(
+        assistant_to_join,
+        chat_id,
+        link,
+        video
+    )
+except Exception as e:
+    LOGGER(_name_).exception(
+        f"VC Join Error in chat {chat_id}"
+    )
+    raise AssistantErr(
+        f"VC Error: {type(e).__name__}: {e}"
+    )
 
-        await add_active_chat(chat_id)
-        await music_on(chat_id)
-        if video: await add_active_video_chat(chat_id)
+await add_active_chat(chat_id)
+await music_on(chat_id)
+
+if video:
+    await add_active_video_chat(chat_id)
 
         if await is_autoend(chat_id):
             counter[chat_id] = {}
